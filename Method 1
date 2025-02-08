@@ -1,0 +1,43 @@
+#include <stdio.h>  
+int main()  
+{
+    int n, i , j, temp, rem, num;
+    printf("enter size of both array : ");
+    scanf("%d",&n);
+    int arr1[n];
+    printf("enter elements of array 1 : ");
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&arr1[i]);
+    }
+    //sorting of array in ascending order
+    for(i=0; i<n; i++)
+    {
+        for(j=i+1; j<n; j++)
+        {
+           if(arr1[i]>arr1[j])
+            {
+                temp = arr1[i];
+                arr1[i] = arr1[j];
+                arr1[j] = temp;
+            }
+        }
+    }
+    for(i=n; i>=0; i--)
+    {
+        num = 0;
+        temp = arr1[i];
+        while(arr1[i]!=0)
+        {
+            rem = arr1[i] % 10;
+            num = num*10 + rem;
+            arr1[i] = arr1[i]/10;
+        }
+        if(num==temp)
+        {
+            printf("%d",num);
+            break;
+        }
+    }
+    return 0;
+}  
